@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Carlos' test HTML5 game</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: #000000;
+		</style>
+		<script type="text/javascript" src="pixi.js-master/bin/pixi.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var Stage = new PIXI.Stage(0x66FF99);
+			
+			var renderer = PIXI.autoDetectRenderer(400, 300);
+			
+			document.body.appendChild(renderer.view);
+			
+			requestAnimationFrame( animate );
+			
+			var texture = PIXI.Texture.fromImage("bunny.png");
+			
+			var bunny = new PIXI.Sprite(texture);
+			
+			bunny.anchor.x = 0.5;
+			bunny.anchor.y = 0.5;
+			
+			bunny.position.x = 200;
+			bunny.position.y = 150;
+			
+			Stage.addChild(bunny);
+			
+			function animate(){
+				requestAnimationFrame( animate );
+				
+				bunny.rotation += 0.1;
+				
+				renderer.render(Stage);
+			}
+		</script>
+	</body>
+</html>
